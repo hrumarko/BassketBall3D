@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Rigidbody rb;
+    
     [SerializeField] float _speed = 10f;
     bool isConducting = false;
     
     public Transform basketPos;
     public Transform conductingPos;
     public Transform resetBallPos;
+    public Transform throwPos;
     
     public GameObject ballPrefab;
     Rigidbody ballRb;
+    Rigidbody rb;
     float forceThrow =20f;
     [Range (0, 0.12f)]public float force;
     
@@ -24,12 +26,7 @@ public class Player : MonoBehaviour
     
     private void Update() {
         
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-        Vector3 direction = new Vector3(-x,  0, -z);
-        if(direction.magnitude > Mathf.Abs(0.1f))
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime*10f);
-        rb.velocity = direction * _speed;
+        Moving();
 
         if(isConducting){
             Conducting();
@@ -41,10 +38,7 @@ public class Player : MonoBehaviour
                 isConducting = false;
                 Throw();
             }
-        }
-        
-
-        
+        }      
     }
     
     private void OnCollisionEnter(Collision other)
@@ -53,11 +47,20 @@ public class Player : MonoBehaviour
             isConducting = true;
         }
     }
+    void Moving(){
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+        Vector3 direction = new Vector3(-x,  0, -z);
+        if(direction.magnitude > Mathf.Abs(0.1f))
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime*10f);
+        rb.velocity = direction * _speed;
+    }
 
     
 
     void Throw(){
-        ballPrefab.transform.position = new Vector3(ballPrefab.transform.position.x, 0.234f, ballPrefab.transform.position.z);
+        ballPrefab.transform.position = throwPos.position;
+        transform.LookAt(new Vector3(-0.12f, 0.37f, -11.72f));
         ballPrefab.GetComponent<Rigidbody>().isKinematic = false;
         Vector3 forceVector =  ((basketPos.transform.position - ballPrefab.transform.position)+ new Vector3(0, forceThrow, 0));
         ballRb.AddForce(forceVector * (1+ force), ForceMode.Impulse);
