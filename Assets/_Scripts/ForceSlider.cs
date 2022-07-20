@@ -7,6 +7,7 @@ public class ForceSlider : MonoBehaviour
 {
     public Slider sliderForce;
     
+    
 
     void Update(){
         while(sliderForce.value != 0.12){

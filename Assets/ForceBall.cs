@@ -7,17 +7,28 @@ public class ForceBall : MonoBehaviour
 {
     public Slider slider;
     public float time;
+    public static float forces;
 
     void Update(){
-        if(Input.GetKeyDown(KeyCode.P)){
-            slider.value = 0f;
-            StartCoroutine(ForceSlider());
+        // if(Input.GetKeyDown(KeyCode.P)){
+        //     slider.value = 0f;
+        //     StartCoroutine(ForceSlider());
             
-        }
-        if(Input.GetKeyDown(KeyCode.Space)){
-            StopAllCoroutines();
+        // }
+        // if(Input.GetKeyDown(KeyCode.Space)){
+        //     StopAllCoroutines();
+        //     force = slider.value;
 
-        }
+        // }
+    }
+    public void StartForceSlider(){
+        slider.value = 0f;
+        StartCoroutine(ForceSlider());
+    }
+    public void GetValueForce(){
+        forces = slider.value;
+        StopAllCoroutines();
+        
     }
 
     public IEnumerator ForceSlider(){
@@ -41,7 +52,7 @@ public class ForceBall : MonoBehaviour
                 }
                 
                 if(slider.value >= 0.12f){
-                    Debug.Log("AAAAAAAAA");
+                    
                     while(slider.value != 0f){
                         slider.value -= 0.01f;
                         yield return new WaitForSeconds(time);

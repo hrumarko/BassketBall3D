@@ -35,8 +35,18 @@ public class Player : MonoBehaviour
                 ballPrefab.transform.position = resetBallPos.position;
             }
             if(Input.GetKeyDown(KeyCode.Space)){
+                
+                FindObjectOfType<ForceBall>().StartForceSlider();
+                
+
+            }
+            if(Input.GetKeyDown(KeyCode.P)){
                 isConducting = false;
+                FindObjectOfType<ForceBall>().GetValueForce();
+                Debug.Log(ForceBall.forces);
+                force = ForceBall.forces;
                 Throw();
+                
             }
         }      
     }
