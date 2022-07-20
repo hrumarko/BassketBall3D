@@ -13,19 +13,24 @@ public class Player : MonoBehaviour
     public Transform resetBallPos;
     public Transform throwPos;
     
-    public GameObject ballPrefab;
+    public GameObject ballPref;
+    GameObject ballPrefab;
     Rigidbody ballRb;
     Rigidbody rb;
     float forceThrow =20f;
     [Range (0, 0.12f)]public float force;
     
     private void Awake() {
-        ballRb = ballPrefab.gameObject.GetComponent<Rigidbody>();
+        
         rb = GetComponent<Rigidbody>();
+    }
+
+    void Start(){
+        Spawn();
     }
     
     private void Update() {
-        
+        DestroyBall();
         Moving();
 
         if(isConducting){
@@ -40,15 +45,30 @@ public class Player : MonoBehaviour
                 
 
             }
-            if(Input.GetKeyDown(KeyCode.P)){
+            if(Input.GetKeyUp(KeyCode.Space)){
                 isConducting = false;
                 FindObjectOfType<ForceBall>().GetValueForce();
-                Debug.Log(ForceBall.forces);
+                
                 force = ForceBall.forces;
                 Throw();
                 
             }
         }      
+    }
+
+    void Spawn(){
+        float x = Random.Range(-12f, 12f);
+        float z = Random.Range(-13f, 10f);
+        Vector3 randPos = new Vector3(x, 0.234f, z);
+        ballPrefab = Instantiate<GameObject>(ballPref, randPos, Quaternion.identity);
+    }
+
+    void DestroyBall(){
+        if(Goal.isGoal){
+            Goal.isGoal = false;
+            Destroy(ballPrefab, 0.5f);
+            Invoke("Spawn", 1f);
+        }
     }
     
     private void OnCollisionEnter(Collision other)
@@ -69,6 +89,7 @@ public class Player : MonoBehaviour
     
 
     void Throw(){
+        ballRb = ballPrefab.gameObject.GetComponent<Rigidbody>();
         ballPrefab.transform.position = throwPos.position;
         transform.LookAt(new Vector3(-0.12f, 0.37f, -11.72f));
         ballPrefab.GetComponent<Rigidbody>().isKinematic = false;
