@@ -6,8 +6,9 @@ public class Player : MonoBehaviour
 {
     
     [SerializeField] float _speed = 10f;
-    bool isConducting = false;
-    
+    public static bool isConducting = false;
+    public static bool isThrow = false;
+    public static bool isChangedAchieve = false;
     public Transform basketPos;
     public Transform conductingPos;
     public Transform resetBallPos;
@@ -48,10 +49,10 @@ public class Player : MonoBehaviour
             if(Input.GetKeyUp(KeyCode.Space)){
                 isConducting = false;
                 FindObjectOfType<ForceBall>().GetValueForce();
-                
+                isThrow = true;
                 force = ForceBall.forces;
                 Throw();
-                
+                isChangedAchieve = true;
             }
         }      
     }
@@ -76,6 +77,8 @@ public class Player : MonoBehaviour
         if(other.gameObject.tag == "Ball"){
             isConducting = true;
         }
+
+        
     }
     void Moving(){
         float x = Input.GetAxis("Horizontal");
@@ -89,12 +92,14 @@ public class Player : MonoBehaviour
     
 
     void Throw(){
+        
         ballRb = ballPrefab.gameObject.GetComponent<Rigidbody>();
         ballPrefab.transform.position = throwPos.position;
         transform.LookAt(new Vector3(-0.12f, 0.37f, -11.72f));
         ballPrefab.GetComponent<Rigidbody>().isKinematic = false;
         Vector3 forceVector =  ((basketPos.transform.position - ballPrefab.transform.position)+ new Vector3(0, forceThrow, 0));
         ballRb.AddForce(forceVector * (1+ force), ForceMode.Impulse);
+        
     }
 
     void Conducting(){
@@ -102,6 +107,9 @@ public class Player : MonoBehaviour
         ballPrefab.GetComponent<Rigidbody>().isKinematic = true;
         ballPrefab.transform.position = conductingPos.position + Vector3.up * Mathf.Abs(Mathf.Sin(Time.time*5));
     }
+
+
+    
 
 
     

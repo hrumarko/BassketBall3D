@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 1038535928794946838}
   m_Layer: 0
   m_Name: Achieve
-  m_TagString: Untagged
+  m_TagString: Achieve
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,3 +284,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achieveText: {fileID: 1038535927743101440}
+  count: 0
+  width: 0
+  height: 0
