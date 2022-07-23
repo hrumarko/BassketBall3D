@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -12,12 +12,9 @@ public class Achievement : MonoBehaviour
     public static bool isBonus = false;
     
 
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
-    /// </summary>
     private void Update()
     {
-        //Debug.Log(isBonus);
+        Debug.Log(count);
     }
     public void SetCount(int num){
         count = num;
@@ -37,7 +34,7 @@ public class Achievement : MonoBehaviour
     {
         if(other.gameObject.tag == "Player" && Player.isThrow ){
             isBonus = true;
-            Debug.Log("AAAAAA");
+            
         }
     }
 

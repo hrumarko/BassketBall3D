@@ -24,4 +24,13 @@ public class Zombie : MonoBehaviour
         direction.Normalize();
         rb.velocity = direction * t; 
     }
+
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag == "Player"){
+            // Player.health -= 1;
+            Debug.Log("-1 HP");
+        }
+    }
 }

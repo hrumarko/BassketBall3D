@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    
+    public static int health = 3;
     [SerializeField] float _speed = 10f;
     public static bool isConducting = false;
     public static bool isThrow = false;
@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     private void Update() {
         DestroyBall();
         Moving();
+        Die();
 
         if(isConducting){
             Conducting();
@@ -106,6 +107,13 @@ public class Player : MonoBehaviour
         
         ballPrefab.GetComponent<Rigidbody>().isKinematic = true;
         ballPrefab.transform.position = conductingPos.position + Vector3.up * Mathf.Abs(Mathf.Sin(Time.time*5));
+    }
+
+    void Die(){
+        if(health <=0){
+            Debug.Log("0 HP");
+            Time.timeScale = 0;
+        }
     }
 
 
