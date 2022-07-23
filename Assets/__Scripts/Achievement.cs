@@ -38,13 +38,13 @@ public class Achievement : MonoBehaviour
         }
     }
 
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     if(other.gameObject.tag == "Player" ){
-    //         isBonus = false;
-    //         Player.isThrow = false;
-    //     }
-    // }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Player" ){
+            isBonus = false;
+            Player.isThrow = false;
+        }
+    }
     
   
     
