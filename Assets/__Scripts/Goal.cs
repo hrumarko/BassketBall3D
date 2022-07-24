@@ -14,6 +14,7 @@ public class Goal : MonoBehaviour
     public static int deleteZombies;
     public Animator anim;
     public GameObject scoreText;
+    public Animator animShake;
     
     
     
@@ -31,6 +32,7 @@ public class Goal : MonoBehaviour
                 textGoal.text = "+1";
                 
                 anim.SetBool("isBasic", true);
+                animShake.SetBool("isGoalAnim", true);
                 StartCoroutine(AnimationCoroutine());
                 isGoal = true;
                 counts++;
@@ -40,6 +42,7 @@ public class Goal : MonoBehaviour
             if(Achievement.isBonus){
                 textGoal.text = "+3";
                 anim.SetBool("isBonus", true);
+                animShake.SetBool("isGoalAnim", true);
                 StartCoroutine(AnimationCoroutine());
                 isGoal = true;
                 deleteZombies = FindObjectOfType<Achievement>().count;
@@ -56,6 +59,7 @@ public class Goal : MonoBehaviour
 
     public IEnumerator AnimationCoroutine(){
         yield return new WaitForSeconds(0.5f);
+        animShake.SetBool("isGoalAnim", false);
         anim.SetBool("isBonus", false);
         anim.SetBool("isBasic", false);
         textGoal.text = "";
