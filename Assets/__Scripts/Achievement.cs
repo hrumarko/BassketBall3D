@@ -14,7 +14,7 @@ public class Achievement : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(count);
+        
     }
     public void SetCount(int num){
         count = num;

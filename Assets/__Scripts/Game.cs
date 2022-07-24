@@ -66,6 +66,11 @@ public class Game : MonoBehaviour
                     }
                     
                 }
+            }else{
+                for(int i = 0; i <zombies.Count; i++){
+                    Destroy(zombies[i]);
+                    zombies.Remove(zombies[i]);
+                }
             }
         }
         
