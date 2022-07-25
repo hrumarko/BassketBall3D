@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     
     [SerializeField] float _speed = 10f;
+    bool isPlay = false;
     public static bool isConducting = false;
     public static bool isThrow = false;
     public static bool isChangedAchieve = false;
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
     public Transform conductingPos;
     public Transform resetBallPos;
     public Transform throwPos;
+    
     
     public GameObject ballPref;
     GameObject ballPrefab;
@@ -82,8 +84,12 @@ public class Player : MonoBehaviour
         
     }
     void Moving(){
+
+        
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+        
+        
         Vector3 direction = new Vector3(-x,  0, -z);
         if(direction.magnitude > Mathf.Abs(0.1f))
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime*10f);

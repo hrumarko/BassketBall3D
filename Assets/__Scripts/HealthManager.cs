@@ -35,7 +35,7 @@ public class HealthManager : MonoBehaviour
     }
 
     public IEnumerator HealthManage(){
-        Debug.Log(health);
+        
             for(int i = 0; i < arrHearts.Length; i++){
                 if(i+1 < health){
                     
