@@ -7,7 +7,7 @@ public class Goal : MonoBehaviour
 {
     public TextMeshProUGUI texts;
     public TextMeshProUGUI textGoal;
-
+    public AudioSource audioSrc;
     public static bool isGoal =false;
     public static bool isBonusGoal = false;
     int counts = 0;
@@ -20,13 +20,13 @@ public class Goal : MonoBehaviour
     
     private void Start()
     {
-        
+        audioSrc = GetComponent<AudioSource>();
     }
     private void OnTriggerEnter(Collider other)
     {   
         
         if(other.gameObject.tag == "Ball"){
-            
+            audioSrc.Play();
             
             if(!Achievement.isBonus){
                 textGoal.text = "+1";

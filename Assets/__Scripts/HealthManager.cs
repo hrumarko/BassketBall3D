@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour
 {
@@ -30,7 +31,8 @@ public class HealthManager : MonoBehaviour
         if(health <=0){
             
             Debug.Log("0 HP");
-            Time.timeScale = 0;
+            health = 3;
+            SceneManager.LoadScene(1);
         }
     }
 
