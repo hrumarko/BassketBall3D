@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public Transform resetBallPos;
     public Transform throwPos;
     
-    
+    public Joystick joystick;
     public GameObject ballPref;
     GameObject ballPrefab;
     Rigidbody ballRb;
@@ -39,17 +39,35 @@ public class Player : MonoBehaviour
 
         if(isConducting){
             Conducting();
-            if(Input.GetKeyDown(KeyCode.F)){
-                isConducting = false;
-                ballPrefab.transform.position = resetBallPos.position;
-            }
-            if(Input.GetKeyDown(KeyCode.Space)){
+            // if(Input.GetKeyDown(KeyCode.F)){
+            //     isConducting = false;
+            //     ballPrefab.transform.position = resetBallPos.position;
+            // }
+            // if(Input.GetKeyDown(KeyCode.Space)){
                 
-                FindObjectOfType<ForceBall>().StartForceSlider();
+            //     FindObjectOfType<ForceBall>().StartForceSlider();
                 
 
-            }
-            if(Input.GetKeyUp(KeyCode.Space)){
+            // }
+            // if(Input.GetKeyUp(KeyCode.Space)){
+            //     isConducting = false;
+            //     FindObjectOfType<ForceBall>().GetValueForce();
+            //     isThrow = true;
+            //     force = ForceBall.forces;
+            //     Throw();
+            //     isChangedAchieve = true;
+            // }
+        }      
+    }
+
+    public void OnThrowDown(){
+        if(isConducting){
+            FindObjectOfType<ForceBall>().StartForceSlider();
+        }
+    }
+    
+    public void OnThrowUp(){
+            if(isConducting){
                 isConducting = false;
                 FindObjectOfType<ForceBall>().GetValueForce();
                 isThrow = true;
@@ -57,7 +75,6 @@ public class Player : MonoBehaviour
                 Throw();
                 isChangedAchieve = true;
             }
-        }      
     }
 
     void Spawn(){
@@ -86,8 +103,10 @@ public class Player : MonoBehaviour
     void Moving(){
 
         
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        // float x = Input.GetAxis("Horizontal");
+        // float z = Input.GetAxis("Vertical");
+        float x = joystick.Horizontal;
+        float z = joystick.Vertical;
         
         
         Vector3 direction = new Vector3(-x,  0, -z);

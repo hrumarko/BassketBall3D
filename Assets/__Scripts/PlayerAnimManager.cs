@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAnimManager : MonoBehaviour
 {
     bool isAnimPlay = false;
-    
+    public Joystick joystick;
     int count = 0;
     
     Animator animPlayer;
@@ -22,8 +22,8 @@ public class PlayerAnimManager : MonoBehaviour
     private void Update()
     {
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+            float x = joystick.Horizontal;
+            float z = joystick.Vertical;
 
         
             if(Mathf.Abs(x) >0f || Mathf.Abs(z) >0f ){
