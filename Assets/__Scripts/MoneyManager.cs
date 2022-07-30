@@ -8,11 +8,14 @@ public class MoneyManager : MonoBehaviour
 
     public TextMeshProUGUI moneyText;
 
-    
+    void Start(){
+        Money = PlayerPrefs.GetInt("Money", Money);
+    }
     private void FixedUpdate()
     {
         moneyText.text = Money.ToString();
-        PlayerPrefs.SetInt("Money", Money);
-        Money = PlayerPrefs.GetInt("Money", Money);
+        
+        
+        
     }
 }

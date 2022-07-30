@@ -11,6 +11,7 @@ public class Game : MonoBehaviour
     public GameObject zombie;
     public TextMeshProUGUI zombieCoinText;
     int money;
+    public GameObject particle;
    
     GameObject achieve;
     
@@ -67,7 +68,10 @@ public class Game : MonoBehaviour
             if(num < zombies.Count){
                 for(int i = 0; i <num; i++){
                     if(zombies[i] != null){
+                        
                         Destroy(zombies[i]);
+                        GameObject go = Instantiate(particle, zombies[i].transform.position, Quaternion.identity);
+                        Destroy(go, 1);
                         zombies.Remove(zombies[i]);
                     }
                     
@@ -75,6 +79,8 @@ public class Game : MonoBehaviour
             }else{
                 for(int i = 0; i <zombies.Count; i++){
                     Destroy(zombies[i]);
+                    GameObject go = Instantiate(particle, zombies[i].transform.position, Quaternion.identity);
+                    Destroy(go, 1);
                     zombies.Remove(zombies[i]);
                 }
             }
