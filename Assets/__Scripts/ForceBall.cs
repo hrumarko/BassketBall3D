@@ -8,55 +8,64 @@ public class ForceBall : MonoBehaviour
     public Slider slider;
     public float time;
     public static float forces;
+    public static bool isForce = false;
+    int countValue = 0;
+    bool isRight = true;
 
-    void Update(){
-        // if(Input.GetKeyDown(KeyCode.P)){
-        //     slider.value = 0f;
-        //     StartCoroutine(ForceSlider());
-            
-        // }
-        // if(Input.GetKeyDown(KeyCode.Space)){
-        //     StopAllCoroutines();
-        //     force = slider.value;
-
-        // }
+    void Start(){
+        
     }
+    private void FixedUpdate()
+    {
+        if(isForce){
+            if(countValue == 0){
+                countValue = 1;
+                
+                slider.value =0;
+                
+            }
+            StartCoroutine(Help());
+
+            
+       
+        }
+    }
+
     public void StartForceSlider(){
         slider.value = 0f;
         StartCoroutine(ForceSlider());
     }
     public void GetValueForce(){
+        // countValue = 0;
         forces = slider.value;
         StopAllCoroutines();
         
     }
 
     public IEnumerator ForceSlider(){
-        
-            
             while(true){
                 StartCoroutine(Help());
                 yield return new WaitForSeconds(0.2f);
-            }
-        
-        
-
+            }        
     }
     public IEnumerator Help(){
-        if(slider.value <= 0f){
-                    while(slider.value != 0.12f){
-                        slider.value += 0.01f;
-                        yield return new WaitForSeconds(time);
-                    }
-                    
+        while(isForce){
+            if(isRight){
+                slider.value += 0.01f * time;
+                // yield return new WaitForSeconds(0.1f);
+                if(slider.value >=0.11f){
+                    isRight = false;
                 }
-                
-                if(slider.value >= 0.12f){
-                    
-                    while(slider.value != 0f){
-                        slider.value -= 0.01f;
-                        yield return new WaitForSeconds(time);
-                    }
+            }
+
+            if(!isRight){
+                slider.value -= 0.01f * time;
+                // yield return new WaitForSeconds(0.1f);
+                if(slider.value <= 0.01f){
+                    isRight = true;
                 }
+            }
+            yield return new WaitForSeconds(7f);
+        }
     }
 }

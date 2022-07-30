@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class ForceSlider : MonoBehaviour
 {
-    public Slider sliderForce;
+    // public Slider sliderForce;
     
     
 
-    void Update(){
-        while(sliderForce.value != 0.12){
-            sliderForce.value += 0.01f;
-        }
-    }
+    // void Update(){
+    //     // while(sliderForce.value != 0.12){
+    //     //     sliderForce.value += 0.01f;
+    //     // }
+    // }
 }

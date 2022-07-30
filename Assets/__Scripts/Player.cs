@@ -62,12 +62,14 @@ public class Player : MonoBehaviour
 
     public void OnThrowDown(){
         if(isConducting){
-            FindObjectOfType<ForceBall>().StartForceSlider();
+            ForceBall.isForce = true;
+            // FindObjectOfType<ForceBall>().StartForceSlider();
         }
     }
     
     public void OnThrowUp(){
             if(isConducting){
+                ForceBall.isForce = false;
                 isConducting = false;
                 FindObjectOfType<ForceBall>().GetValueForce();
                 isThrow = true;

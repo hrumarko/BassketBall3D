@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 
 public class Game : MonoBehaviour
@@ -8,7 +9,8 @@ public class Game : MonoBehaviour
     public List<GameObject> zombies;
     public GameObject achievement;
     public GameObject zombie;
-    
+    public TextMeshProUGUI zombieCoinText;
+    int money;
    
     GameObject achieve;
     
@@ -28,9 +30,13 @@ public class Game : MonoBehaviour
             if(achieve != null)
             {
                 Destroy(achieve);
+                Achievement.isBonus = false;
             }
             
             DestroyZombies(Goal.deleteZombies);
+            MoneyManager.Money += Goal.deleteZombies;
+            money += Goal.deleteZombies;
+            zombieCoinText.text = money.ToString();
             achieve = Instantiate(achievement, new Vector3(Random.Range(-6,9), 0, Random.Range(0,12)), Quaternion.identity);
             CountAchieve();
             FindObjectOfType<Achievement>().SetScale(Random.Range(4, 7), Random.Range(4, 7));

@@ -47,12 +47,12 @@ public class Achievement : MonoBehaviour
     }
 
 
-    private void OnTriggerExit(Collider other)
-    {
-        if(Player.isThrow){
-            isBonus =false;
-        }
-    }
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     if(Player.isThrow){
+    //         Player.isThrow = false;
+    //     }
+    // }
     
   
     
