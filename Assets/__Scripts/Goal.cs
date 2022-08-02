@@ -7,7 +7,7 @@ public class Goal : MonoBehaviour
 {
     public TextMeshProUGUI texts;
     public TextMeshProUGUI textGoal;
-    public AudioSource audioSrc;
+    AudioSource audioSrc;
     public static bool isGoal =false;
     public static bool isBonusGoal = false;
     int counts = 0;

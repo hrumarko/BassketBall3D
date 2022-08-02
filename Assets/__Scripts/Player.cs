@@ -39,31 +39,14 @@ public class Player : MonoBehaviour
 
         if(isConducting){
             Conducting();
-            // if(Input.GetKeyDown(KeyCode.F)){
-            //     isConducting = false;
-            //     ballPrefab.transform.position = resetBallPos.position;
-            // }
-            // if(Input.GetKeyDown(KeyCode.Space)){
-                
-            //     FindObjectOfType<ForceBall>().StartForceSlider();
-                
 
-            // }
-            // if(Input.GetKeyUp(KeyCode.Space)){
-            //     isConducting = false;
-            //     FindObjectOfType<ForceBall>().GetValueForce();
-            //     isThrow = true;
-            //     force = ForceBall.forces;
-            //     Throw();
-            //     isChangedAchieve = true;
-            // }
         }      
     }
 
     public void OnThrowDown(){
         if(isConducting){
             ForceBall.isForce = true;
-            // FindObjectOfType<ForceBall>().StartForceSlider();
+            
         }
     }
     
@@ -105,8 +88,7 @@ public class Player : MonoBehaviour
     void Moving(){
 
         
-        // float x = Input.GetAxis("Horizontal");
-        // float z = Input.GetAxis("Vertical");
+
         float x = joystick.Horizontal;
         float z = joystick.Vertical;
         
