@@ -35,4 +35,8 @@ public class PauseManager : MonoBehaviour
         SceneManager.LoadScene(1);
         canvasPause.SetActive(false);
     }
+
+    public void MainMenu(){
+        SceneManager.LoadScene(0);
+    }
 }

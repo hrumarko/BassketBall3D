@@ -8,6 +8,7 @@ public class MainMEnu : MonoBehaviour
 
     public void StartGame(){
         SceneManager.LoadScene(1);
+        Time.timeScale = 1;
     }
 
     public void StopGame(){

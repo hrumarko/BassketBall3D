@@ -10,7 +10,7 @@ public class Goal : MonoBehaviour
     AudioSource audioSrc;
     public static bool isGoal =false;
     public static bool isBonusGoal = false;
-    int counts = 0;
+    public static int counts = 0;
     public static int deleteZombies;
     public Animator anim;
     public GameObject scoreText;

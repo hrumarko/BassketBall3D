@@ -11,6 +11,7 @@ public class HealthManager : MonoBehaviour
     public Sprite noHeart;
     public Image[] arrHearts;
     Animator anim;
+    public GameObject dieMenu;
     
     
     private void Start()
@@ -32,7 +33,8 @@ public class HealthManager : MonoBehaviour
             
             Debug.Log("0 HP");
             health = 3;
-            SceneManager.LoadScene(1);
+            Time.timeScale = 0;
+            dieMenu.SetActive(true);
         }
     }
 
