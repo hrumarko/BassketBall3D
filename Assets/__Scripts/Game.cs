@@ -36,6 +36,7 @@ public class Game : MonoBehaviour
             
             DestroyZombies(Goal.deleteZombies);
             MoneyManager.Money += Goal.deleteZombies;
+            PlayerPrefs.SetInt("Money", MoneyManager.Money);
             money += Goal.deleteZombies;
             zombieCoinText.text = money.ToString();
             achieve = Instantiate(achievement, new Vector3(Random.Range(-6,9), 0, Random.Range(0,12)), Quaternion.identity);

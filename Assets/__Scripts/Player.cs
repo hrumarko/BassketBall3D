@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     
     [SerializeField] float _speed = 10f;
-    bool isPlay = false;
+    
     public static bool isConducting = false;
     public static bool isThrow = false;
     public static bool isChangedAchieve = false;

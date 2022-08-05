@@ -15,5 +15,9 @@ public class MainMEnu : MonoBehaviour
         Application.Quit();
     }
 
+    public void AddMoney(){
+        MoneyManager.Money += 10;
+    }
+
 
 }

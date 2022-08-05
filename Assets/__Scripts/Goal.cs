@@ -78,7 +78,7 @@ public class Goal : MonoBehaviour
                 isGoal = true;
                 deleteZombies = FindObjectOfType<Achievement>().count;
                 isBonusGoal = true;
-                PlayerPrefs.SetInt("Money", MoneyManager.Money);
+                
                 
                 
                 counts += 3;

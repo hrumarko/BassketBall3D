@@ -5,16 +5,16 @@ using UnityEngine;
 public class PlayerAudioManager : MonoBehaviour
 {
     bool isAudioPlay = false;
-    bool isAudioStop = false;
+    
     public Joystick joystick;
     int count = 0;
     AudioSource audioSrc;
-    // Animator animPlayer;
+    
 
 
     private void Start()
     {   
-        // animPlayer = GetComponent<Animator>();
+        
         audioSrc = GetComponent<AudioSource>();
     }
 

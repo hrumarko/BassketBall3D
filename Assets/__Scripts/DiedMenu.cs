@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class DiedMenu : MonoBehaviour
 {   
     
- 
+    public GameObject canvas;
     public void MainMenu(){
+        canvas.SetActive(false);
         SceneManager.LoadScene(0);
     }
 
