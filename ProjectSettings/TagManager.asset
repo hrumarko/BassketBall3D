@@ -7,6 +7,7 @@ TagManager:
   - Ball
   - Goal
   - Achieve
+  - Equip
   layers:
   - Default
   - TransparentFX

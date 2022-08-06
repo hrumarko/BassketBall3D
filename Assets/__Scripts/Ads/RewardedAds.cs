@@ -9,8 +9,8 @@ public class RewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
     [SerializeField] private Button buttonShowAd;
     [SerializeField] private string androidAdID = "Rewarded_Android";
     [SerializeField] private string iOSAdID = "Rewarded_iOS";
-    // public TextMeshProUGUI scoreText;
-    // int count = 0;
+    [SerializeField] private Game zombieDestroy;
+    [SerializeField] private HealthManager healthRecovery;
     public GameObject dieMenuCanvas;
 
     private string adID;
@@ -48,11 +48,18 @@ public class RewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
 
     }
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState){
-        if(placementId.Equals(adID) && showCompletionState.Equals(UnityAdsCompletionState.COMPLETED)){
-
-            HealthManager.health = 3;
-            Time.timeScale = 0;
-            dieMenuCanvas.SetActive(false);
+        zombieDestroy.DestroyAllZombies();
+        HealthManager.health = 3;
+        dieMenuCanvas.SetActive(false);
+        
+        healthRecovery.Recovery();
+        
+        Time.timeScale = 1;
+            
+        if(placementId.Equals(androidAdID) && showCompletionState.Equals(UnityAdsCompletionState.COMPLETED)){
+            
+            
+            
         }
     }
     public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message){

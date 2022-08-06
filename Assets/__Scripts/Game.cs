@@ -64,6 +64,18 @@ public class Game : MonoBehaviour
         }
     }
 
+    public void DestroyAllZombies(){
+        for(int i = 0; i <zombies.Count; i++){
+                    if(zombies[i] != null){
+                        
+                        Destroy(zombies[i]);
+                        GameObject go = Instantiate(particle, zombies[i].transform.position, Quaternion.identity);
+                        Destroy(go, 1);
+                        zombies.Remove(zombies[i]);
+                    }
+                    
+                }
+    }
     public void DestroyZombies(int num){
         {
             if(num < zombies.Count){

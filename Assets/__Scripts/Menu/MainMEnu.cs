@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMEnu : MonoBehaviour
 {
 
+    public GameObject shop;
     public void StartGame(){
         SceneManager.LoadScene(1);
         Time.timeScale = 1;
@@ -19,5 +20,11 @@ public class MainMEnu : MonoBehaviour
         MoneyManager.Money += 10;
     }
 
+    public void OpenShop(){
+        shop.SetActive(true);
+    }
+    public void CloseShop(){
+        shop.SetActive(false);
+    }
 
 }
