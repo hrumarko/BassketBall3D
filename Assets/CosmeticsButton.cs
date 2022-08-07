@@ -14,15 +14,15 @@ public class CosmeticsButton : MonoBehaviour
         shop = GetComponent<ShopSkin>();
     }
     void FixedUpdate(){
-        if(!shop.isLocked){
+        if(shop.isLocked == false){
             lockText.text = "";
-        }else if(shop.isLocked){
+        }else if(shop.isLocked == true){
             lockText.text = "LOCKED";
         }
 
-        if(shop.isEquipped){
+        if(shop.isEquipped == true){
             spriteEquip.SetActive(true);
-        }else if(!shop.isEquipped){
+        }else if(shop.isEquipped == false){
             spriteEquip.SetActive(false);
         }
 

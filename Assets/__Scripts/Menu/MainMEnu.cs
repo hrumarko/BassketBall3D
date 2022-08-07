@@ -9,6 +9,7 @@ public class MainMEnu : MonoBehaviour
     public GameObject shop;
     public void StartGame(){
         SceneManager.LoadScene(1);
+        HealthManager.health = 3;
         Time.timeScale = 1;
     }
 
