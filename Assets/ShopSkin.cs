@@ -3,82 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShopSkin : MonoBehaviour
-{
-    public int numOfSkins;
-    public bool isEquipped;
-    public bool isLocked;
+{    public int numOfSkin;
     public int price;
-    [Header("Bollean Numbers")]
-    public int isEquipNum;
-    public int isLockedNum;             //1 -true // 0 - false
 
-    void Start(){
-        PlayerPrefs.DeleteAll();
-        isLockedNum = PlayerPrefs.GetInt("isLockedNum", isLockedNum);
+    public int isEquip;
+    public int isOpen;
 
-        isEquipNum = PlayerPrefs.GetInt("isEquipNum", isEquipNum);
+    void Start(){        
+        isEquip = PlayerPrefs.GetInt(numOfSkin +"isEquipq");              
+        isOpen = PlayerPrefs.GetInt(numOfSkin +"isOpenq");    
     }
-    
-    
 
-   private void FixedUpdate()
-   {    
-        BoolChek();
-        SetSkins();
-   }
-    public void Select(){
-        if(!isLocked){
-            SkinManager.numberSkin = numOfSkins;
+    public void FixedUpdate(){
+        if(SkinManager.numberSkin != this.numOfSkin){
+            this.isEquip =0;
+            PlayerPrefs.SetInt(numOfSkin + "isEquipq", isEquip);
         }
     }
-
     public void Buy(){
-        if(isLocked){
+        if(isOpen == 0){
             if(MoneyManager.Money >= price){
-                MoneyManager.Money -= price;
-                
-                isLockedNum = 0;
-                //PlayerPrefs.SetInt("isLockedNum", isLockedNum);
-            }
-            else{
-                Debug.Log("A nety deneg to!!!xD");
+                MoneyManager.Money -= price;                
+                isOpen =1;
+                PlayerPrefs.SetInt(numOfSkin +"isOpenq", isOpen);
             }
         }
     }
-
-    public void BoolChek(){
-        if(isEquipNum == 1){
-            isEquipped = true;
-        } else if(isEquipNum == 0){
-            isEquipped = false;
+    public void Select(){
+        if(isOpen == 1){
+            SkinManager.numberSkin = numOfSkin;
+            isEquip = 1;
+            PlayerPrefs.SetInt(numOfSkin + "isEquipq", isEquip);
         }
-
-        if(isLockedNum == 1){
-            isLocked = true;
-            PlayerPrefs.SetInt("isLockedNum", isLockedNum);
-        } else{
-            isLocked = false;
-            PlayerPrefs.SetInt("isLockedNum", isLockedNum);
-        }
-        // if(isLocked){
-        //     isLockedNum = 1;
-        //     //PlayerPrefs.SetInt("isLockedNum", isLockedNum);
-        // }
-        
-    }
-
-    public void SetSkins(){
-        if(numOfSkins==SkinManager.numberSkin){
-        //isEquipped = true;
-        isEquipNum = 1;
-        PlayerPrefs.SetInt("isEquipNum", isEquipNum);
-    }else{
-        //isEquipped = false;
-        isEquipNum = 0;
-        PlayerPrefs.SetInt("isEquipNum", isEquipNum);
-    }
-
-    
     }
 
     

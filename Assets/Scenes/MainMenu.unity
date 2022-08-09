@@ -890,12 +890,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04557d2e7527b4418b34e3a4f7474d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfSkins: 3
-  isEquipped: 0
-  isLocked: 1
+  numOfSkin: 3
   price: 1
-  isEquipNum: 0
-  isLockedNum: 1
+  isEquip: 0
+  isOpen: 0
 --- !u!114 &299374592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1282,12 +1280,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04557d2e7527b4418b34e3a4f7474d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfSkins: 7
-  isEquipped: 0
-  isLocked: 1
+  numOfSkin: 7
   price: 1
-  isEquipNum: 0
-  isLockedNum: 1
+  isEquip: 0
+  isOpen: 0
 --- !u!114 &405907716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1631,7 +1627,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 438127144}
         m_TargetAssemblyTypeName: ShopSkin, Assembly-CSharp
-        m_MethodName: Select
+        m_MethodName: Buy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1643,7 +1639,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 438127144}
         m_TargetAssemblyTypeName: ShopSkin, Assembly-CSharp
-        m_MethodName: Buy
+        m_MethodName: Select
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1703,12 +1699,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04557d2e7527b4418b34e3a4f7474d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfSkins: 0
-  isEquipped: 0
-  isLocked: 0
+  numOfSkin: 0
   price: 1
-  isEquipNum: 0
-  isLockedNum: 0
+  isEquip: 0
+  isOpen: 0
 --- !u!114 &438127145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2682,12 +2676,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04557d2e7527b4418b34e3a4f7474d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfSkins: 9
-  isEquipped: 0
-  isLocked: 1
+  numOfSkin: 9
   price: 1
-  isEquipNum: 0
-  isLockedNum: 1
+  isEquip: 0
+  isOpen: 0
 --- !u!114 &867784199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3249,12 +3241,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04557d2e7527b4418b34e3a4f7474d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfSkins: 4
-  isEquipped: 0
-  isLocked: 1
+  numOfSkin: 4
   price: 1
-  isEquipNum: 0
-  isLockedNum: 1
+  isEquip: 0
+  isOpen: 0
 --- !u!114 &1066187407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3641,12 +3631,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04557d2e7527b4418b34e3a4f7474d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfSkins: 6
-  isEquipped: 0
-  isLocked: 1
+  numOfSkin: 6
   price: 1
-  isEquipNum: 0
-  isLockedNum: 1
+  isEquip: 0
+  isOpen: 0
 --- !u!114 &1317929240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4104,12 +4092,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04557d2e7527b4418b34e3a4f7474d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfSkins: 5
-  isEquipped: 0
-  isLocked: 1
+  numOfSkin: 5
   price: 1
-  isEquipNum: 0
-  isLockedNum: 1
+  isEquip: 0
+  isOpen: 0
 --- !u!114 &1510914803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5031,12 +5017,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04557d2e7527b4418b34e3a4f7474d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfSkins: 8
-  isEquipped: 0
-  isLocked: 1
+  numOfSkin: 8
   price: 1
-  isEquipNum: 0
-  isLockedNum: 1
+  isEquip: 0
+  isOpen: 0
 --- !u!114 &1695112468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5212,12 +5196,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04557d2e7527b4418b34e3a4f7474d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfSkins: 1
-  isEquipped: 0
-  isLocked: 1
+  numOfSkin: 1
   price: 1
-  isEquipNum: 0
-  isLockedNum: 1
+  isEquip: 0
+  isOpen: 0
 --- !u!114 &1698304805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6155,12 +6137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d04557d2e7527b4418b34e3a4f7474d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numOfSkins: 2
-  isEquipped: 0
-  isLocked: 1
+  numOfSkin: 2
   price: 1
-  isEquipNum: 0
-  isLockedNum: 1
+  isEquip: 0
+  isOpen: 0
 --- !u!114 &1926456193
 MonoBehaviour:
   m_ObjectHideFlags: 0

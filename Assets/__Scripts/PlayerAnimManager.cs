@@ -8,7 +8,7 @@ public class PlayerAnimManager : MonoBehaviour
     public Joystick joystick;
     int count = 0;
     
-    Animator animPlayer;
+    public Animator animPlayer;
 
 
     private void Start()
@@ -28,12 +28,12 @@ public class PlayerAnimManager : MonoBehaviour
         
             if(Mathf.Abs(x) >0f || Mathf.Abs(z) >0f ){
                 
-                isAnimPlay = true;
-                if(isAnimPlay && count ==0){
+                // isAnimPlay = true;
+                // if(isAnimPlay && count ==0){
                 animPlayer.SetBool("isRun", true);
                 
                 count = 1;
-        }
+        // }
             
             } else{
                 count = 0;
