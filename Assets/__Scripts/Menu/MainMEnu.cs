@@ -7,6 +7,14 @@ public class MainMEnu : MonoBehaviour
 {
 
     public GameObject shop;
+    public GameObject zombieCoin;
+
+    public GameObject settings, ad;
+    
+    RectTransform rt;
+    void Start(){
+        rt = zombieCoin.GetComponent<RectTransform>();
+    }
     public void StartGame(){
         SceneManager.LoadScene(1);
         HealthManager.health = 3;
@@ -23,8 +31,16 @@ public class MainMEnu : MonoBehaviour
 
     public void OpenShop(){
         shop.SetActive(true);
+        
+        
+        rt.anchoredPosition = new Vector3(-1726,-101,0);
+        settings.SetActive(false);
+        ad.SetActive(false);
     }
     public void CloseShop(){
+        rt.anchoredPosition = new Vector3(-619,-101,0);
+        settings.SetActive(true);
+        ad.SetActive(true);
         shop.SetActive(false);
     }
 
