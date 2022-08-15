@@ -10,6 +10,7 @@ public class MainMEnu : MonoBehaviour
     public GameObject zombieCoin;
 
     public GameObject settings, ad;
+    public GameObject levelsCanvas;
     
     RectTransform rt;
     void Start(){
@@ -31,7 +32,7 @@ public class MainMEnu : MonoBehaviour
 
     public void OpenShop(){
         shop.SetActive(true);
-        
+        levelsCanvas.SetActive(false);
         
         rt.anchoredPosition = new Vector3(-1726,-101,0);
         settings.SetActive(false);
@@ -40,6 +41,7 @@ public class MainMEnu : MonoBehaviour
     public void CloseShop(){
         rt.anchoredPosition = new Vector3(-619,-101,0);
         settings.SetActive(true);
+        levelsCanvas.SetActive(true);
         ad.SetActive(true);
         shop.SetActive(false);
     }

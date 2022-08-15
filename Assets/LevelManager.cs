@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    int numberOfLevel;
+    public static int numberOfLevel;
     public static int curentScore;
     public GameObject gameOverCanvas;
     void Start()
     {
+        numberOfLevel = PlayerPrefs.GetInt("numberOfLevel", numberOfLevel);
         if(numberOfLevel == 1){
             curentScore = 9;
         }
@@ -20,6 +21,7 @@ public class LevelManager : MonoBehaviour
         if(Goal.counts >= curentScore){
             //StopGame();
             Time.timeScale = 0;
+            gameOverCanvas.SetActive(true);
             
         }
     }
