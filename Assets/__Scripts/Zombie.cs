@@ -11,6 +11,7 @@ public class Zombie : MonoBehaviour
     bool isHarder0 = false;
     bool isHarder1 = false;
     bool isHarder2 = false;
+    public Animator damageAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +58,7 @@ public class Zombie : MonoBehaviour
             if(other.gameObject.tag == "Player"){
                 isDamage = false;
                 StartCoroutine(ZombieDamageKooldown());
+                StartCoroutine(Damage());
                 HealthManager.health -= 1;
                 Debug.Log("-1 HP");
             }
@@ -67,5 +69,12 @@ public class Zombie : MonoBehaviour
         
         yield return new WaitForSeconds(1f);
         isDamage = true;
+    }
+
+    public IEnumerator Damage(){
+        // damageAnim.SetBool("isDamage", false);
+        damageAnim.SetBool("isDamage", true);
+        yield return new WaitForSeconds(1f);
+        damageAnim.SetBool("isDamage", false);
     }
 }
