@@ -46,4 +46,8 @@ public class MainMEnu : MonoBehaviour
         shop.SetActive(false);
     }
 
+    public void ResetAll(){
+        PlayerPrefs.DeleteAll();
+    }
+
 }

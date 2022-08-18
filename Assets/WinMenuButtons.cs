@@ -18,14 +18,27 @@ public class WinMenuButtons : MonoBehaviour
     }
 
     public void NextLevel(){
-
+        
+        SceneManager.LoadScene(1);
+        LevelManager.countCall = 0;
+        Goal.counts =0;
+        
+        LevelManager.numberOfLevel += 1;
+        PlayerPrefs.SetInt("numberOfLevel", LevelManager.numberOfLevel);
+        HealthManager.health = 3;
     }
 
     public void Restart(){
-
+        SceneManager.LoadScene(1);
+        LevelManager.countCall = 0;
+        Goal.counts =0;
+        
+        
+        PlayerPrefs.SetInt("numberOfLevel", LevelManager.numberOfLevel);
+        HealthManager.health = 3;
     }
 
     public void Menu(){
-
+        SceneManager.LoadScene(0);
     }
 }

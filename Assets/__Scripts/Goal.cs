@@ -15,15 +15,13 @@ public class Goal : MonoBehaviour
     public Animator anim;
     public GameObject scoreText;
     public Animator animShake;
-    public int highScore;
-    public TextMeshProUGUI highScoreText;
+
     
     
     
     private void Start()
     {
-        highScore = PlayerPrefs.GetInt("highScore", highScore);
-        highScoreText.text = $"HIGHSCORE - {highScore}";
+
         audioSrc = GetComponent<AudioSource>();
     }
     private void OnTriggerEnter(Collider other)
@@ -43,11 +41,7 @@ public class Goal : MonoBehaviour
                 
             }
 
-            if(counts > highScore){
-                highScore = counts;
-                highScoreText.text = $"HIGHSCORE - {highScore}";
-                PlayerPrefs.SetInt("highScore", highScore);
-            }
+            
         }
     }
 
