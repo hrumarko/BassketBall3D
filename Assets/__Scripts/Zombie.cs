@@ -12,10 +12,11 @@ public class Zombie : MonoBehaviour
     bool isHarder1 = false;
     bool isHarder2 = false;
     public static bool isDamageTaken;
-    public Animator damageAnim;
+    
     // Start is called before the first frame update
     void Start()
     {
+        t = 2.03f;
         player = GameObject.Find("Player");
         rb = GetComponent<Rigidbody>();
     }
@@ -25,13 +26,13 @@ public class Zombie : MonoBehaviour
     {
         if(!isHarder0 && Goal.counts > 15){
             isHarder0 = true;
-            Debug.Log("Ебеееем");
-            t += 2f;
+            Debug.Log("harder1");
+            Game.delaySpawn = 4.5f;
         }
 
         if(!isHarder1 && Goal.counts > 45){
             isHarder0 = true;
-            t += 2f;
+            Game.delaySpawn = 3;
         }
 
         if(!isHarder2 && Goal.counts > 75){

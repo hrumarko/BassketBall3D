@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7509963633342449951
 Transform:
   m_ObjectHideFlags: 0
@@ -78,7 +78,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   t: 2.03
-  damageAnim: {fileID: 0}
 --- !u!1001 &7976264402450932128
 PrefabInstance:
   m_ObjectHideFlags: 0

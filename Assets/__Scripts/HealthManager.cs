@@ -13,7 +13,9 @@ public class HealthManager : MonoBehaviour
     Animator anim;
     public GameObject dieMenu;
     
-    
+    void Awake(){
+        health = 3;
+    }
     public void Recovery()
     {   
         for(int i = 0; i < arrHearts.Length; i++){                    
@@ -40,8 +42,11 @@ public class HealthManager : MonoBehaviour
             
             Debug.Log("0 HP");
             //health = 3;
-            //Time.timeScale = 0;
-            //dieMenu.SetActive(true);
+            Time.timeScale = 0;
+            dieMenu.SetActive(true);
+            
+            int a = MoneyManager.Money - Game.money;
+            PlayerPrefs.SetInt("Money", a);
         }
     }
 

@@ -10,13 +10,18 @@ public class DiedMenu : MonoBehaviour
     public void MainMenu(){
         canvas.SetActive(false);
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
     }
 
     public void Restart(){
-        Time.timeScale = 1;
-        HealthManager.health = 3;
         SceneManager.LoadScene(1);
-        A();
+        Time.timeScale = 1;
+        LevelManager.countCall = 0;
+        Goal.counts =0;
+        
+        
+        PlayerPrefs.SetInt("numberOfLevel", LevelManager.numberOfLevel);
+        HealthManager.health = 3;
     }
 
     public void WatchAdd(){

@@ -10,14 +10,15 @@ public class Game : MonoBehaviour
     public GameObject achievement;
     public GameObject zombie;
     public TextMeshProUGUI zombieCoinText;
-    int money;
+    public static int money;
     public GameObject particle;
+    public static float delaySpawn;
    
     GameObject achieve;
     
 
     void Start(){
-        
+        delaySpawn =6;
         StartCoroutine(FixedSpawnZombies());
         achieve = Instantiate(achievement, new Vector3(-0.27f, 0, 8.20f), Quaternion.identity);
         FindObjectOfType<Achievement>().SetCount(Random.Range(1, zombies.Count));
@@ -60,7 +61,7 @@ public class Game : MonoBehaviour
     public IEnumerator FixedSpawnZombies(){
         while(true){
             SpawnZombies();
-            yield return new WaitForSeconds(6f);
+            yield return new WaitForSeconds(delaySpawn);
         }
     }
 

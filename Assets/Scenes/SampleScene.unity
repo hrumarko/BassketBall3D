@@ -24694,7 +24694,7 @@ MonoBehaviour:
   - {fileID: 1622164011}
   - {fileID: 828727390}
   - {fileID: 925629686}
-  dieMenu: {fileID: 1413535980}
+  dieMenu: {fileID: 886315767}
 --- !u!82 &884061621
 AudioSource:
   m_ObjectHideFlags: 0

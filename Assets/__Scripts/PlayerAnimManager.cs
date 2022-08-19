@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAnimManager : MonoBehaviour
 {
-    bool isAnimPlay = false;
+    bool isAnimPlay;
     public Joystick joystick;
     int count = 0;
     
