@@ -9,10 +9,19 @@ public class CosmeticsButton : MonoBehaviour
     public TextMeshProUGUI lockText;
     public GameObject spriteEquip;
     ShopSkin shop;
+    int countLogin = 0;
 
     void Start(){
         shop = GetComponent<ShopSkin>();
-        
+        countLogin = PlayerPrefs.GetInt("CountLogin");
+        if(countLogin == 0){
+            if(shop.numOfSkin == 0){
+                shop.isEquip = 1;
+                shop.isOpen =1;
+                countLogin =1;
+                PlayerPrefs.SetInt("CountLogin", countLogin);
+            }
+        }
         
     }
     void FixedUpdate(){

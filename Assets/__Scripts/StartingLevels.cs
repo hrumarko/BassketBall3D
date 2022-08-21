@@ -8,7 +8,11 @@ public class StartingLevels : MonoBehaviour
     public TextMeshProUGUI levelsText;
 
     void Awake(){
-        levelsText.text = "LEVEL  " + LevelManager.numberOfLevel;
+        if(LevelManager.numberOfLevel == 0){
+            levelsText.text = "SURVIVAL";
+        } else{
+            levelsText.text = "LEVEL  " + LevelManager.numberOfLevel;
+        }
     }
     void Start(){
         startLevels.SetBool("startLevel", true);

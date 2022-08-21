@@ -9,7 +9,7 @@ public class StarsOfLevel : MonoBehaviour
     void Awake(){
         for(int i = 1; i< 8; i++){
             LevelStars[i] = PlayerPrefs.GetInt(i + "stars");
-            Debug.Log($"{i} + {LevelStars[i]}");
+            
         }
     }
 }

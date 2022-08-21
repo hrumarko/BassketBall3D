@@ -122,6 +122,7 @@ public class LevelManager : MonoBehaviour
             gameOverAnim.SetBool("isWin", true);
             collectedCoins.text = "zombie-coin collected - " + HealthManager.health*reward;
             MoneyManager.Money += HealthManager.health*reward;
+            PlayerPrefs.SetInt("Money", MoneyManager.Money);
             gameOverAnim.SetInteger("stars", HealthManager.health);
             
     }

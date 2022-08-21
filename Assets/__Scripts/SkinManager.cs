@@ -9,7 +9,8 @@ public class SkinManager : MonoBehaviour
 
     private void Start()
     {
-        //numberSkin = PlayerPrefs.GetInt("numberSkin", numberSkin);
+        numberSkin = PlayerPrefs.GetInt("numOfSkin");
+        Debug.Log(numberSkin);
     }
     
     void FixedUpdate(){

@@ -32,6 +32,7 @@ public class ShopSkin : MonoBehaviour
     public void Select(){
         if(isOpen == 1){
             SkinManager.numberSkin = numOfSkin;
+            PlayerPrefs.SetInt("numOfSkin", SkinManager.numberSkin);
             isEquip = 1;
             PlayerPrefs.SetInt(numOfSkin + "isEquipq", isEquip);
         }

@@ -5,10 +5,13 @@ using UnityEngine;
 public class SkinChanger : MonoBehaviour
 {
     public GameObject[] skins;
+    int countSkin =0;
     // Start is called before the first frame update
     void Start()
     {
+ 
         SetSkin(SkinManager.numberSkin);
+        
     }
 
     // Update is called once per frame
