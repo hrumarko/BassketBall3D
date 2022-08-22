@@ -5,9 +5,12 @@ using UnityEngine;
 public class DamageTaken : MonoBehaviour
 {
     public Animator damageAnim;
+    public AudioSource damageAudioSrc;
+    public AudioClip damageSound;
 
     void Update(){
         if(Zombie.isDamageTaken){
+            damageAudioSrc.PlayOneShot(damageSound);
             Zombie.isDamageTaken = false;
             StartCoroutine(Damage());
         }

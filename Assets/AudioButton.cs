@@ -9,6 +9,6 @@ public class AudioButton : MonoBehaviour
 
     public void PlayClip(){
         audioSrc.PlayOneShot(clip);
-        Debug.Log("ЯЛОХ");
+        
     }
 }

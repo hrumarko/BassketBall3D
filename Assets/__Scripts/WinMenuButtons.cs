@@ -20,16 +20,19 @@ public class WinMenuButtons : MonoBehaviour
     public void NextLevel(){
         
         SceneManager.LoadScene(1);
+        Time.timeScale = 1;
         LevelManager.countCall = 0;
         Goal.counts =0;
-        
+        Game.money = 0;
         LevelManager.numberOfLevel += 1;
         PlayerPrefs.SetInt("numberOfLevel", LevelManager.numberOfLevel);
         HealthManager.health = 3;
     }
 
     public void Restart(){
+
         SceneManager.LoadScene(1);
+        Game.money = 0;
         LevelManager.countCall = 0;
         Goal.counts =0;
         

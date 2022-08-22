@@ -8,14 +8,13 @@ public class Zombie : MonoBehaviour
     bool isDamage = true;
     Rigidbody rb;
     public float t;
-    bool isHarder0 = false;
-    bool isHarder1 = false;
-    bool isHarder2 = false;
+    
     public static bool isDamageTaken;
     
     // Start is called before the first frame update
     void Start()
     {
+        
         t = 2.03f;
         player = GameObject.Find("Player");
         rb = GetComponent<Rigidbody>();
@@ -24,21 +23,7 @@ public class Zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isHarder0 && Goal.counts > 15){
-            isHarder0 = true;
-            Debug.Log("harder1");
-            Game.delaySpawn = 4.5f;
-        }
-
-        if(!isHarder1 && Goal.counts > 45){
-            isHarder0 = true;
-            Game.delaySpawn = 3;
-        }
-
-        if(!isHarder2 && Goal.counts > 75){
-            isHarder0 = true;
-            t += 2f;
-        }
+        
         float x = player.transform.position.x;
         float z = player.transform.position.z;
         
@@ -72,6 +57,7 @@ public class Zombie : MonoBehaviour
         yield return new WaitForSeconds(1f);
         isDamage = true;
     }
+    
 
     
 }

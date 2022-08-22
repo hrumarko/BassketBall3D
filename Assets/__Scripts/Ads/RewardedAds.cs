@@ -50,11 +50,10 @@ public class RewardedAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLi
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState){
         zombieDestroy.DestroyAllZombies();
         HealthManager.health = 2;
-        dieMenuCanvas.SetActive(false);
-        
-        healthRecovery.Recovery();
-        
+        dieMenuCanvas.SetActive(false);        
+        healthRecovery.Recovery();        
         Time.timeScale = 1;
+        Debug.Log("ХУЙ");
             
 
     }

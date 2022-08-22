@@ -8,6 +8,9 @@ TagManager:
   - Goal
   - Achieve
   - Equip
+  - FxTemporaire
+  - Tree
+  - Zombie
   layers:
   - Default
   - TransparentFX

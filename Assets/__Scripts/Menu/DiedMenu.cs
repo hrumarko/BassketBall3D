@@ -18,6 +18,7 @@ public class DiedMenu : MonoBehaviour
         Time.timeScale = 1;
         LevelManager.countCall = 0;
         Goal.counts =0;
+        Game.money = 0;
         
         
         PlayerPrefs.SetInt("numberOfLevel", LevelManager.numberOfLevel);

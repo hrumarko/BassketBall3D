@@ -18,11 +18,13 @@ public class Game : MonoBehaviour
     
 
     void Start(){
+        StartCoroutine(Hardest());
         delaySpawn =6;
         StartCoroutine(FixedSpawnZombies());
         achieve = Instantiate(achievement, new Vector3(-0.27f, 0, 8.20f), Quaternion.identity);
         FindObjectOfType<Achievement>().SetCount(Random.Range(1, zombies.Count));
         FindObjectOfType<Achievement>().SetScale(Random.Range(4, 7), Random.Range(4, 7));
+
     }
    
     private void Update()
@@ -108,6 +110,16 @@ public class Game : MonoBehaviour
             }else if(zombies.Count >3){
                 FindObjectOfType<Achievement>().SetCount(Random.Range(3, zombies.Count));
             }
+    }
+
+    public IEnumerator Hardest(){
+        while(true){
+            if(delaySpawn >= 0){
+                delaySpawn -= 0.5f;
+                Debug.Log("-0.5");
+            }
+            yield return new WaitForSeconds(30f);
+        }
     }
 
 

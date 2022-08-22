@@ -13,6 +13,8 @@ public class Level : MonoBehaviour
     public GameObject star2;
     public GameObject star3;
     public Animator animLocked;
+    public AudioSource audioSourceLevel;
+    public AudioClip error;
 
 
     void Start(){
@@ -21,6 +23,7 @@ public class Level : MonoBehaviour
         if(numOfLevel != 1){
             if(StarsOfLevel.LevelStars[numOfLevel-1] <2){
                 isLevelClosed = true;
+                
             }else{
                 isLevelClosed = false;
                 animLocked.SetBool("isLocked", false);
@@ -35,6 +38,7 @@ public class Level : MonoBehaviour
             SceneManager.LoadScene(1);
         }else{
             StartCoroutine(LockedAnim());
+            audioSourceLevel.PlayOneShot(error);
         }
     }
     void SetStars(int countStar){

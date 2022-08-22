@@ -6,6 +6,7 @@ public class LevelManager : MonoBehaviour
 {
     public static int numberOfLevel;
     public static int curentScore ;
+    public static int currentZombiecScore;
     public GameObject gameOverCanvas;
     public TextMeshProUGUI taskText;
     public TextMeshProUGUI collectedCoins;
@@ -19,11 +20,14 @@ public class LevelManager : MonoBehaviour
     public static int countCall = 0;
     void Awake(){
         zombie.SetActive(true);
+        currentZombiecScore =0;
         player.enabled = true;
+        
         gamePlay.SetActive(true);
         numberOfLevel = PlayerPrefs.GetInt("numberOfLevel");
                 if(numberOfLevel == 1){
                     curentScore = 9;
+                    
                     if(StarsOfLevel.LevelStars[numberOfLevel]<3){
                         reward = 5;
                     }else{
@@ -92,6 +96,122 @@ public class LevelManager : MonoBehaviour
                     taskText.text = "score 42 points";
                 }
 
+                if(numberOfLevel == 8){
+                    curentScore = 50;
+                    if(StarsOfLevel.LevelStars[numberOfLevel]<3){
+                    reward = 23;
+                    }else{
+                        reward = 0;
+                    }
+                    taskText.text = "score 50 points";
+                }
+
+                if(numberOfLevel == 9){
+                    curentScore = 50;
+                    currentZombiecScore = 4;                    
+                    if(StarsOfLevel.LevelStars[numberOfLevel]<3){
+                    reward = 25;
+                    }else{
+                        reward = 0;
+                    }
+                    taskText.text = "score 50 points.   killed 4 zombies";
+                }
+                if(numberOfLevel == 10){
+                    curentScore = 50;
+                    currentZombiecScore = 6;
+                    if(StarsOfLevel.LevelStars[numberOfLevel]<3){
+                    reward = 27;
+                    }else{
+                        reward = 0;
+                    }
+                    taskText.text = "score 50 points.   killed 6 zombies";
+                }
+                if(numberOfLevel == 11){
+                    curentScore = 50;
+                    currentZombiecScore = 9;
+                    if(StarsOfLevel.LevelStars[numberOfLevel]<3){
+                    reward = 29;
+                    }else{
+                        reward = 0;
+                    }
+                    taskText.text = "score 50 points. killed 9 zombies";
+                }
+                if(numberOfLevel == 12){
+                    curentScore = 50;
+                    currentZombiecScore = 13;
+                    if(StarsOfLevel.LevelStars[numberOfLevel]<3){
+                    reward = 31;
+                    }else{
+                        reward = 0;
+                    }
+                    taskText.text = "score 50 points.   killed 13 zombies";
+                }
+                if(numberOfLevel == 13){
+                    curentScore = 50;
+                    currentZombiecScore = 18;
+                    if(StarsOfLevel.LevelStars[numberOfLevel]<3){
+                    reward = 33;
+                    }else{
+                        reward = 0;
+                    }
+                    taskText.text = "score 50 points.   killed 18 zombies";
+                }
+                if(numberOfLevel == 14){
+                    curentScore = 50;
+                    currentZombiecScore = 24;
+                    if(StarsOfLevel.LevelStars[numberOfLevel]<3){
+                    reward = 35;
+                    }else{
+                        reward = 0;
+                    }
+                    taskText.text = "score 50 points.   killed 24 zombies";
+                }
+                if(numberOfLevel == 15){
+                    curentScore = 50;
+                    currentZombiecScore = 31;
+                    if(StarsOfLevel.LevelStars[numberOfLevel]<3){
+                    reward = 37;
+                    }else{
+                        reward = 0;
+                    }
+                    taskText.text = "score 50 points.   killed 31 zombies";
+                }
+                if(numberOfLevel == 16){
+                    curentScore = 50;
+                    currentZombiecScore = 39;
+                    if(StarsOfLevel.LevelStars[numberOfLevel]<3){
+                    reward = 39;
+                    }else{
+                        reward = 0;
+                    }
+                    taskText.text = "score 50 points.   killed 39 zombies";
+                }
+                if(numberOfLevel == 17){
+                    curentScore = 50;
+                    currentZombiecScore = 48;
+                    if(StarsOfLevel.LevelStars[numberOfLevel]<3){
+                    reward = 41;
+                    }else{
+                        reward = 0;
+                    }
+                    taskText.text = "score 50 points.   killed 48 zombies";
+                }
+
+                if(numberOfLevel == 18){
+                    curentScore = 50;
+                    currentZombiecScore = 50;
+                    if(StarsOfLevel.LevelStars[numberOfLevel]<3){
+                    reward = 43;
+                    }else{
+                        reward = 0;
+                    }
+                    taskText.text = "score 50 points.   killed 50 zombie";
+                }
+
+                if(numberOfLevel == 0){
+                    taskText.text = "highscore is ";
+                }
+
                 
 
     }
@@ -104,7 +224,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Goal.counts >= curentScore && countCall == 0){
+        if(Goal.counts >= curentScore && Game.money > currentZombiecScore && countCall == 0){
             countCall = 1;
             Winning();
             
@@ -112,11 +232,13 @@ public class LevelManager : MonoBehaviour
     }
 
     public void Winning(){
+            gamePlay.GetComponent<Game>().DestroyAllZombies();
             PlayerPrefs.SetInt(numberOfLevel + "stars", HealthManager.health);
+            Debug.Log("OP");
             zombie.SetActive(false);
             player.enabled = false;
             gamePlay.SetActive(false);
-            gamePlay.GetComponent<Game>().DestroyAllZombies();
+            
             
             gameOverCanvas.SetActive(true);
             gameOverAnim.SetBool("isWin", true);
