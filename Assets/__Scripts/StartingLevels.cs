@@ -16,6 +16,7 @@ public class StartingLevels : MonoBehaviour
     }
     void Start(){
         startLevels.SetBool("startLevel", true);
+        Time.timeScale = 1;
     }
 
 }

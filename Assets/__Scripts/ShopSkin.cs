@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class ShopSkin : MonoBehaviour
 {    public int numOfSkin;
     public int price;
 
     public int isEquip;
     public int isOpen;
+    public TextMeshProUGUI priceText;
 
     void Start(){        
         isEquip = PlayerPrefs.GetInt(numOfSkin +"isEquipq");              
-        isOpen = PlayerPrefs.GetInt(numOfSkin +"isOpenq");    
+        isOpen = PlayerPrefs.GetInt(numOfSkin +"isOpenq");
+        priceText.text = price.ToString();   
     }
 
     public void FixedUpdate(){

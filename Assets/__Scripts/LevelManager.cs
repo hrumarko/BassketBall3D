@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
     public static int numberOfLevel;
@@ -12,17 +13,21 @@ public class LevelManager : MonoBehaviour
     public TextMeshProUGUI collectedCoins;
     public Animator gameOverAnim;
     int reward;
+    public static int highscore;
 
     [SerializeField] GameObject zombie;
     [SerializeField] Player player;
     [SerializeField] GameObject gamePlay;
 
+    public Button next;
+    public TextMeshProUGUI textWin;
     public static int countCall = 0;
     void Awake(){
         zombie.SetActive(true);
         currentZombiecScore =0;
         player.enabled = true;
-        
+        highscore = PlayerPrefs.GetInt("HS");
+        taskText.text = "highscore is " + highscore;
         gamePlay.SetActive(true);
         numberOfLevel = PlayerPrefs.GetInt("numberOfLevel");
                 if(numberOfLevel == 1){
@@ -209,7 +214,7 @@ public class LevelManager : MonoBehaviour
                 }
 
                 if(numberOfLevel == 0){
-                    taskText.text = "highscore is ";
+                    
                 }
 
                 
@@ -224,17 +229,29 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(numberOfLevel == 0){
+            if(Goal.counts > highscore){
+                highscore = Goal.counts;
+                PlayerPrefs.SetInt("HS", highscore);
+                taskText.text = "highscore is " + highscore;
+            }
+        }
+        if(numberOfLevel !=0){
         if(Goal.counts >= curentScore && Game.money > currentZombiecScore && countCall == 0){
             countCall = 1;
             Winning();
             
+        }
         }
     }
 
     public void Winning(){
             gamePlay.GetComponent<Game>().DestroyAllZombies();
             PlayerPrefs.SetInt(numberOfLevel + "stars", HealthManager.health);
-            Debug.Log("OP");
+            if(HealthManager.health == 1){
+                next.interactable = false;
+                textWin.text = "TRY AGAIN";
+            }
             zombie.SetActive(false);
             player.enabled = false;
             gamePlay.SetActive(false);
@@ -246,6 +263,7 @@ public class LevelManager : MonoBehaviour
             MoneyManager.Money += HealthManager.health*reward;
             PlayerPrefs.SetInt("Money", MoneyManager.Money);
             gameOverAnim.SetInteger("stars", HealthManager.health);
+            
             
     }
 }

@@ -10,6 +10,7 @@ public class CosmeticsButton : MonoBehaviour
     public GameObject spriteEquip;
     ShopSkin shop;
     int countLogin = 0;
+    public TextMeshProUGUI priceTexts;
 
     void Start(){
         shop = GetComponent<ShopSkin>();
@@ -27,6 +28,7 @@ public class CosmeticsButton : MonoBehaviour
     void FixedUpdate(){
         if(shop.isOpen == 1){
             lockText.text = "";
+            priceTexts.text = "";
             
         }else if(shop.isOpen == 0){
             lockText.text = "LOCKED";

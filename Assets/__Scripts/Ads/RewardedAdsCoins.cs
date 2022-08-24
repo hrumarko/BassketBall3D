@@ -47,7 +47,7 @@ public class RewardedAdsCoins : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsS
     }
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState){
        
-        MoneyManager.Money += 100;
+        MoneyManager.Money =MoneyManager.Money +  100;
         PlayerPrefs.SetInt("Money", MoneyManager.Money);
             
 

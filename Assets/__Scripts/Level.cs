@@ -15,6 +15,7 @@ public class Level : MonoBehaviour
     public Animator animLocked;
     public AudioSource audioSourceLevel;
     public AudioClip error;
+    
 
 
     void Start(){
@@ -47,18 +48,18 @@ public class Level : MonoBehaviour
             star1.GetComponent<Image>().color = new Color(255, 255, 255, 255);
             star2.GetComponent<Image>().color = new Color(255, 255, 255, 255);
             star3.GetComponent<Image>().color = new Color(255, 255, 255, 255);
+            
         }
 
         if(countStar == 2){
             star1.GetComponent<Image>().color = new Color(255, 255, 255, 255);
             star2.GetComponent<Image>().color = new Color(255, 255, 255, 255);
-            // star3.GetComponent<Image>().color = new Color(255, 255, 255, 255);
+            
         }
 
         if(countStar == 1){
             star1.GetComponent<Image>().color = new Color(255, 255, 255, 255);
-            // star2.GetComponent<Image>().color = new Color(255, 255, 255, 255);
-            // star3.GetComponent<Image>().color = new Color(255, 255, 255, 255);
+            
         }
     }
     public IEnumerator LockedAnim(){

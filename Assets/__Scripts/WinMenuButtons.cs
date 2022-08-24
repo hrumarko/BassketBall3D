@@ -43,5 +43,8 @@ public class WinMenuButtons : MonoBehaviour
 
     public void Menu(){
         SceneManager.LoadScene(0);
+        Game.money = 0;
+        LevelManager.countCall = 0;
+        Goal.counts =0;
     }
 }

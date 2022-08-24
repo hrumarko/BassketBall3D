@@ -40,7 +40,7 @@ public class HealthManager : MonoBehaviour
     void Die(){
         if(health <=0){
             
-            Debug.Log("0 HP");
+            
             //health = 3;
             Time.timeScale = 0;
             dieMenu.SetActive(true);

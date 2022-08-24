@@ -23,7 +23,7 @@ public class SpawnMiniZombies : MonoBehaviour
 
     public IEnumerator SpawnZombies(){
         while(true){
-           Instantiate(zombieMini, new Vector3(), Quaternion.identity);
+            Instantiate(zombieMini, new Vector3(-19.43f,0,0), Quaternion.identity);
             yield return new WaitForSeconds(7f); 
         }
         
