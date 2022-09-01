@@ -39,15 +39,16 @@ public class RewardedAdsCoins : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsS
         }
     }
     public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message){
-
+            
     }
 
     public void OnUnityAdsShowClick(string placementId){
 
     }
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState){
-       
+        buttonShowAd.interactable = false;
         MoneyManager.Money =MoneyManager.Money +  100;
+        
         PlayerPrefs.SetInt("Money", MoneyManager.Money);
             
 
